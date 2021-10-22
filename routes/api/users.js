@@ -2,6 +2,6 @@ const express = require('express');
 
 const router = express.Router();
 
-router.get('/test', (req,res) => res.json({msg: 'profile work!'}));
+router.get('/test', (req,res) => res.json({msg: 'users work!'}));
 
 module.exports = router; 
