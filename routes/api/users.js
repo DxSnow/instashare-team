@@ -16,7 +16,7 @@ router.post('/register', (req, res) => {
 
   //validate user's input
   const result = validateRegisterInput(req.body);
-  console.log(result);
+  
   if (!result.isValid){
     //meaning there are error
     return res.status(400).json(result.errors);
@@ -72,7 +72,7 @@ router.post('/login', (req, res) => {
   if(!output.isValid){
     return res.status(400).json(output.errors);
   }
-  
+
   User.findOne({email: req.body.email})
   .then(user => {
     //check if user exists
