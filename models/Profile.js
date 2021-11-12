@@ -36,10 +36,6 @@ const profileSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  numberOfPosts: {
-    type: Number,
-    default: 0
-  },
   numberOfFollowers: {
     type: Number,
     default: 0
