@@ -24,7 +24,7 @@ router.get(
     const errors = {};
 
     Profile.findOne({ userID: req.user.id })
-      .populate("user", ["username", "avatar"])
+      .populate("userID", ["username", "avatar"])
       .then((profile) => {
         if (!profile) {
           errors.noprofile = "There is no profile for this user";
@@ -54,7 +54,6 @@ router.post(
     const profileFields = {};
     profileFields.userID = req.user.id;
     if (req.body.username) profileFields.username = req.body.username;
-    if (req.body.email) profileFields.email = req.body.email;
     if (req.body.avatar) profileFields.avatar = req.body.avatar;
     if (req.body.phoneNumber) profileFields.phoneNumber = req.body.phoneNumber;
     if (req.body.gender) profileFields.gender = req.body.gender;
