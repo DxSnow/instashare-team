@@ -23,8 +23,8 @@ router.get(
   (req, res) => {
     const errors = {};
 
-    Profile.findOne({ user: req.user.id })
-      .populate("user", ["name", "avatar"])
+    Profile.findOne({ userID: req.user.id })
+      .populate("user", ["username", "avatar"])
       .then((profile) => {
         if (!profile) {
           errors.noprofile = "There is no profile for this user";
@@ -52,8 +52,8 @@ router.post(
 
     // Get fields
     const profileFields = {};
-    profileFields.user = req.user.id;
-    if (req.body.userName) profileFields.userName = req.body.userName;
+    profileFields.userID = req.user.id;
+    if (req.body.username) profileFields.username = req.body.username;
     if (req.body.email) profileFields.email = req.body.email;
     if (req.body.avatar) profileFields.avatar = req.body.avatar;
     if (req.body.phoneNumber) profileFields.phoneNumber = req.body.phoneNumber;
@@ -66,7 +66,7 @@ router.post(
     if (req.body.numberOfFollowings) profileFields.numberOfFollowings = req.body.numberOfFollowings;
     if (req.body.temporarilyDisabled) profileFields.temporarilyDisabled = req.body.temporarilyDisabled;
 
-    Profile.findOne({ user: req.user.id }).then((profile) => {
+    Profile.findOne({ userID: req.user.id }).then((profile) => {
       if (profile) {
         // Update
         Profile.findOneAndUpdate(
@@ -77,10 +77,10 @@ router.post(
       } else {
         // Create
 
-        // Check if userName exists
-        Profile.findOne({ userName: profileFields.userName }).then((profile) => {
+        // Check if username exists
+        Profile.findOne({ username: profileFields.username }).then((profile) => {
           if (profile) {
-            errors.userName = "That userName already exists";
+            errors.username = "This username is taken. Try a new one.";
             return res.status(400).json(errors);
           }
           // Save Profile
@@ -92,4 +92,4 @@ router.post(
     });
   }
 );
-module.exports = router; 
+module.exports = router;
