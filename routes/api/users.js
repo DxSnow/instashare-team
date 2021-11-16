@@ -16,7 +16,7 @@ router.post('/register', (req, res) => {
 
   //validate user's input
   const result = validateRegisterInput(req.body);
-  
+
   if (!result.isValid){
     //meaning there are error
     return res.status(400).json(result.errors);
@@ -36,7 +36,7 @@ router.post('/register', (req, res) => {
         });
 
         const newUser = new User({
-          name: req.body.name,
+          username: req.body.username,
           email: req.body.email,
           password: req.body.password,
           avatar
@@ -88,7 +88,7 @@ router.post('/login', (req, res) => {
           //generate token
           const payload = {
             id: user.id,
-            name: user.name,
+            username: user.username,
             avatar: user.avatar
           };
           jwt.sign(

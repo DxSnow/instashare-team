@@ -3,12 +3,12 @@ const Schema = mongoose.Schema;
 
 const profileSchema = new Schema({
   userID: {
-    type: Schema.Types.ObjectId,
-    ref: 'users'
+    type: Schema.Types.ObjectId, //An ObjectId is a special type typically used for unique identifiers.
+    ref: 'User' //reference to User model.The ref option is what tells Mongoose which model to use during population
   },
-  userName: {
+  username: {
     type: String,
-    required: true
+    ref: 'User'
   },
   avatar: {
     type: String,

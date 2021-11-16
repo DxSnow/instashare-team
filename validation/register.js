@@ -5,11 +5,11 @@ module.exports = function (data){
 
     let errors = {}; //to collect errors
 
-    //check user name
-    if (isEmpty(data.name)){
-        errors.name = 'Name field is required';
-    }else if (!Validator.isLength(data.name,{min:2,Max:30})){
-        errors.name = 'Name must be between 2 and 30 characters';
+    //check username
+    if (isEmpty(data.username)){
+        errors.username = 'Username field is required';
+    }else if (!Validator.isLength(data.username,{min:2,Max:30})){
+        errors.username = 'Username must be between 2 and 30 characters';
     }
 
     //check email
