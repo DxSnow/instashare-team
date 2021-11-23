@@ -49,7 +49,10 @@ router.post(
       // Return any errors with 400 status
       return res.status(400).json(errors);
     }
-
+    //Get fields
+    /*const userFields = {};
+    userFields.user = req.user.id;
+    if(req.body.username) userFields.username = req.body.username;*/
     // Get fields
     const profileFields = {};
     profileFields.userID = req.user.id;
@@ -64,6 +67,20 @@ router.post(
     if (req.body.numberOfFollowers) profileFields.numberOfFollowers = req.body.numberOfFollowers;
     if (req.body.numberOfFollowings) profileFields.numberOfFollowings = req.body.numberOfFollowings;
     if (req.body.temporarilyDisabled) profileFields.temporarilyDisabled = req.body.temporarilyDisabled;
+
+    /*User.findOne({ user: req.user.id }).then((user) => {
+      if (user) {
+        // Update
+        User.findOneAndUpdate(
+          { user: req.user.id },
+          { $set: userFields },
+          { new: true }
+        ).then((user) => res.json(user))
+          .catch(err => console.log(err));
+      } else{
+        console.log("else case");
+      }
+    });*/
 
     Profile.findOne({ userID: req.user.id }).then((profile) => {
       if (profile) {
