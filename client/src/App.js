@@ -1,20 +1,28 @@
 import './App.css';
 import React, { Component} from 'react';
-
-
-
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import Header from './components/layout/Header';
+import Landing from './components/layout/Landing';
 import Footer from './components/layout/Footer';
 
 
 export default class App extends Component {
   render() {
     return (
-      <div>
-        <h1>Hi I'm on the left</h1>
-        <Footer />
+      <Router>
+        <div className = "App">
+          <Header />
+
+          <Routes>
+              <Route exact path="/" element={<Landing />} />
+
+          </Routes>
+
+          <Footer />
 
 
-      </div>
+        </div>
+      </Router>
     )
   }
 }
