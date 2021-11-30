@@ -35,5 +35,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://locahost:7000"
+  "proxy": "http://localhost:7000"
 }

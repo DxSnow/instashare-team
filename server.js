@@ -10,7 +10,7 @@ const posts = require('./routes/api/posts');
 const passport = require('passport');
 
 // For any route, transform user's input to unicode.
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true }));
 //then  transform http to json
 app.use(express.json());
 
@@ -36,5 +36,5 @@ mongoose.connect(db.mongoURI)
   .catch((err) => console.log(err));
 //promise statement
 
-const port = 5000;
+const port = 7000;
 app.listen(port, () => console.log(`Server is running on port ${port}`));
