@@ -1,5 +1,5 @@
 .App {
-  text-align: left;
+  text-align: center;
 }
 
 .App-logo {
@@ -36,9 +36,6 @@
     transform: rotate(360deg);
   }
 }
-
-
-
 
 .button {
   display: inline-block;
@@ -78,6 +75,9 @@
 .button:hover span:after {
   opacity: 1;
   right: 0;
+}
+.form-control::placeholder {
+  color: #bbb !important;
 }
 
 /* Footer */
