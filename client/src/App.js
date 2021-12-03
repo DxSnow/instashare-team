@@ -1,6 +1,6 @@
 //importing libraries
 import React, { Component} from 'react';
-import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
 //importing css and components
 import './App.css';

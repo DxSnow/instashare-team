@@ -39,7 +39,7 @@ class Login extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
-              <h1 className="display-4 text-center">Log In</h1>
+              <h1 className="display-6 text-center">Log In</h1>
               <p className="lead text-center">Sign in to your Instashare account</p>
               <form noValidate onSubmit={this.onSubmit.bind(this)}>
                 <div className="form-group">
@@ -68,7 +68,7 @@ class Login extends Component {
                   </div>
 
                 </div>
-                <input type="submit" className="btn btn-light btn-block mt-4" />
+                <input type="submit" className="btn btn-secondary btn-block mt-4" />
               </form>
             </div>
           </div>
