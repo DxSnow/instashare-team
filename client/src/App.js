@@ -8,7 +8,8 @@ import Header from './components/layout/Header';
 import Landing from './components/layout/Landing';
 import Footer from './components/layout/Footer';
 import Register from './components/auth/Register';
- 
+import Login from './components/auth/Login';
+
 
 class App extends Component {
   render() {
@@ -19,6 +20,7 @@ class App extends Component {
           <Routes>
               <Route exact path="/" element={<Landing />} />
               <Route exact path="/register" element={<Register />} />
+              <Route exact path = "/login" element = {<Login />}/>
           </Routes>
           <Footer />
         </div>

@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class Header extends Component {
   render() {
     return (
-      <header>
+      <header className="header">
         <h1>Instashare</h1>
         {/* <nav>
           <ul>
