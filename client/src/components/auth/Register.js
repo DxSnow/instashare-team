@@ -7,10 +7,10 @@ class Register extends Component {
     super();
 
     this.state = {
-      name: '',
+      username: '',
       email: '',
       password: '',
-      password2: '',
+      passwordConfirm: '',
       errors: {}
     }
   }
@@ -22,10 +22,10 @@ class Register extends Component {
   onSubmit(e){
     e.preventDefault();
     const newUser = {
-      name: this.state.name,
+      username: this.state.username,
       email: this.state.email,
       password: this.state.password,
-      password2: this.state.password2
+      passwordConfirm: this.state.passwordConfirm
     };
     //calling the api
     axios
@@ -48,16 +48,16 @@ class Register extends Component {
                   <input 
                     type="text" 
                     className={classnames('form-control form-control-lg', {
-                      'is-invalid': errors.name
+                      'is-invalid': errors.username
                     })}
                     placeholder="Name" 
-                    name="name" 
-                    value = {this.state.name}
+                    name="username" 
+                    value = {this.state.username}
                     onChange={this.onChange.bind(this)}
                     />
                     {
                       <div className="invalid-feedback">
-                        {errors.name}
+                        {errors.username}
                       </div>
                     }
                 </div>
@@ -100,16 +100,16 @@ class Register extends Component {
                   <input 
                   type="password" 
                   className={classnames('form-control form-control-lg', {
-                      'is-invalid': errors.password2
+                      'is-invalid': errors.passwordConfirm
                     })} 
                   placeholder="Confirm Password" 
-                  name="password2"
-                    value = {this.state.password2}
+                  name="passwordConfirm"
+                    value = {this.state.passwordConfirm}
                     onChange={this.onChange.bind(this)}
                    />
                     {
                       <div className="invalid-feedback">
-                        {errors.password2}
+                        {errors.passwordConfirm}
                       </div>
                     }                   
                 </div>
