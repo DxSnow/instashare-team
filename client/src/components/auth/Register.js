@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+//import axios from 'axios';
 import classnames from 'classnames';
+import { connect } from 'react-redux'; // connect function
+import {registerUser } from '../../actions/authActions';
 
 class Register extends Component {
   constructor() {
@@ -27,22 +29,25 @@ class Register extends Component {
       password: this.state.password,
       passwordConfirm: this.state.passwordConfirm
     };
+    this.props.registerUser(newUser);
     //calling the api
-    axios
-       .post('/api/users/register', newUser)
-       .then(res => console.log(res.data))
-       .catch(err => this.setState({errors: err.response.data})); 
+    //axios
+    //   .post('/api/users/register', newUser)
+    //   .then(res => console.log(res.data))
+    //   .catch(err => this.setState({errors: err.response.data})); 
   }
    
   render() {
     const {errors} = this.state;
+    const {user} = this.props.auth; // deconstruction
     return (
       <div className="register">
+      {user ? user.username : 'no user'}
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
               <h1 className="display-4 text-center">Sign Up</h1>
-              <p className="lead text-center">Create your DevConnector account</p>
+              <p className="lead text-center">Create your Instashare account</p>
               <form noValidate onSubmit={this.onSubmit.bind(this)}>
                 <div className="form-group">
                   <input 
@@ -122,4 +127,8 @@ class Register extends Component {
     )
   }
 }
-export default Register;
+//consume data(state info saved in redux store) from redux store
+const mapStateToProps = (state) => ({
+  auth: state.auth
+})
+export default connect(mapStateToProps, {registerUser} )  (Register);
