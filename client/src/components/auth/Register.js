@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 //import axios from 'axios';
 import classnames from 'classnames';
 import { connect } from 'react-redux'; // connect function
@@ -13,7 +15,6 @@ class Register extends Component {
       email: '',
       password: '',
       passwordConfirm: '',
-      errors: {}
     }
   }
 
@@ -29,7 +30,7 @@ class Register extends Component {
       password: this.state.password,
       passwordConfirm: this.state.passwordConfirm
     };
-    this.props.registerUser(newUser);
+    this.props.registerUser(newUser, this.props.history);
     //calling the api
     //axios
     //   .post('/api/users/register', newUser)
@@ -38,7 +39,7 @@ class Register extends Component {
   }
    
   render() {
-    const {errors} = this.state;
+    const {errors} = this.props;
     const {user} = this.props.auth; // deconstruction
     return (
       <div className="register">
@@ -127,8 +128,15 @@ class Register extends Component {
     )
   }
 }
+
+Register.propTypes = {
+  registerUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired
+}
 //consume data(state info saved in redux store) from redux store
 const mapStateToProps = (state) => ({
-  auth: state.auth
+  auth: state.auth,
+  errors: state.errors
 })
-export default connect(mapStateToProps, {registerUser} )  (Register);
+export default connect(mapStateToProps, {registerUser}) (withRouter(Register));

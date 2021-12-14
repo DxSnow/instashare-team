@@ -1,5 +1,5 @@
 import { SET_USER } from '../actions/types';
-
+ 
  const initialState = {
     isAuthenticated: false,
     user: {}

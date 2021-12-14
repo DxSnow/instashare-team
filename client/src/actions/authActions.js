@@ -1,8 +1,13 @@
-import { SET_USER } from './types';
+import { GET_ERRORS } from './types';
+import axios from 'axios';
 
- export const registerUser = (userData) => {
-   return{
-     type: SET_USER,
-     payload: userData 
-   }
- }
+export const registerUser = (userData, history) => dispatch => {
+  //calling the api
+   axios
+      .post('/api/users/register', userData)
+      .then(res => history.push('./login'))
+      .catch(err => dispatch ({
+         type: GET_ERRORS,
+         payload: err.response.data
+       })); 
+}

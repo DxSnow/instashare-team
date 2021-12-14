@@ -1,6 +1,6 @@
 //importing libraries
 import React, { Component} from 'react';
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 //importing css and components
@@ -20,11 +20,9 @@ class App extends Component {
         <Router>
           <div className = "App">
             <Header />
-            <Routes>
-                <Route exact path="/" element={<Landing />} />
-                <Route exact path="/register" element={<Register />} />
-                <Route exact path = "/login" element = {<Login />}/>
-            </Routes>
+            <Route exact path="/" component={Landing} />
+            <Route exact path="/register" component={Register} />
+            <Route exact path="/login" component={Login} />
             <Footer />
           </div>
         </Router>
