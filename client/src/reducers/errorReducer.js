@@ -8,6 +8,11 @@ export default function(state= initialState, action){
     //dispatch call
     case GET_ERRORS:
       return action.payload;
+    case 'CLEAR_ERRORS':
+      return{
+        ...state,
+        email:''
+      }
     default:
       return state;
   }

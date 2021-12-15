@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { connect } from 'react-redux'; // connect function
 import {registerUser } from '../../actions/authActions';
+import {clearErrors}from '../../actions/authActions';
 
 class Register extends Component {
   constructor() {
@@ -126,7 +127,12 @@ class Register extends Component {
       </div>
     )
   }
-}
+  componentWillUnmount(){
+    this.props.clearErrors()
+
+  }
+
+}//end of class
 
 Register.propTypes = {
   registerUser: PropTypes.func.isRequired,
@@ -138,4 +144,4 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
   errors: state.errors
 })
-export default connect(mapStateToProps, {registerUser})(Register);
+export default connect(mapStateToProps, {registerUser,clearErrors})(Register);

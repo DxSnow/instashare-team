@@ -13,6 +13,7 @@ import { SET_USER } from '../actions/types';
           isAuthenticated: Boolean(action.payload),
           user: action.payload
         }
+      
       default:
       return state;
     }
