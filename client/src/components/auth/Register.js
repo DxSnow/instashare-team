@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
 //import axios from 'axios';
 import classnames from 'classnames';
 import { connect } from 'react-redux'; // connect function
@@ -35,9 +34,9 @@ class Register extends Component {
     //axios
     //   .post('/api/users/register', newUser)
     //   .then(res => console.log(res.data))
-    //   .catch(err => this.setState({errors: err.response.data})); 
+    //   .catch(err => this.setState({errors: err.response.data}));
   }
-   
+
   render() {
     const {errors} = this.props;
     const {user} = this.props.auth; // deconstruction
@@ -51,13 +50,13 @@ class Register extends Component {
               <p className="lead text-center">Create your Instashare account</p>
               <form noValidate onSubmit={this.onSubmit.bind(this)}>
                 <div className="form-group">
-                  <input 
-                    type="text" 
+                  <input
+                    type="text"
                     className={classnames('form-control form-control-lg', {
                       'is-invalid': errors.username
                     })}
-                    placeholder="Name" 
-                    name="username" 
+                    placeholder="Name"
+                    name="username"
                     value = {this.state.username}
                     onChange={this.onChange.bind(this)}
                     />
@@ -68,12 +67,12 @@ class Register extends Component {
                     }
                 </div>
                 <div className="form-group">
-                  <input 
-                  type="email" 
+                  <input
+                  type="email"
                     className={classnames('form-control form-control-lg', {
                       'is-invalid': errors.email
                     })}
-                  placeholder="Email Address" 
+                  placeholder="Email Address"
                   name="email"
                     value = {this.state.email}
                     onChange={this.onChange.bind(this)}
@@ -83,15 +82,15 @@ class Register extends Component {
                       <div className="invalid-feedback">
                         {errors.email}
                       </div>
-                    }                  
+                    }
                 </div>
                 <div className="form-group">
-                  <input 
-                  type="password" 
+                  <input
+                  type="password"
                   className={classnames('form-control form-control-lg', {
                       'is-invalid': errors.password
-                    })} 
-                  placeholder="Password" 
+                    })}
+                  placeholder="Password"
                   name="password"
                     value = {this.state.password}
                     onChange={this.onChange.bind(this)}
@@ -100,15 +99,15 @@ class Register extends Component {
                       <div className="invalid-feedback">
                         {errors.password}
                       </div>
-                    }                   
+                    }
                 </div>
                 <div className="form-group">
-                  <input 
-                  type="password" 
+                  <input
+                  type="password"
                   className={classnames('form-control form-control-lg', {
                       'is-invalid': errors.passwordConfirm
-                    })} 
-                  placeholder="Confirm Password" 
+                    })}
+                  placeholder="Confirm Password"
                   name="passwordConfirm"
                     value = {this.state.passwordConfirm}
                     onChange={this.onChange.bind(this)}
@@ -117,7 +116,7 @@ class Register extends Component {
                       <div className="invalid-feedback">
                         {errors.passwordConfirm}
                       </div>
-                    }                   
+                    }
                 </div>
                 <input type="submit" className="btn btn-info btn-block mt-4" />
               </form>
@@ -139,4 +138,4 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
   errors: state.errors
 })
-export default connect(mapStateToProps, {registerUser}) (withRouter(Register));
+export default connect(mapStateToProps, {registerUser})(Register);
