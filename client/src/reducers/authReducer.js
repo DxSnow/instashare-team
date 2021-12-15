@@ -1,4 +1,5 @@
 import { SET_USER } from '../actions/types';
+import isEmpty from '../utils/isEmpty';
 
  const initialState = {
     isAuthenticated: false,
@@ -10,7 +11,7 @@ import { SET_USER } from '../actions/types';
       case SET_USER:
         return{
           ...state,
-          isAuthenticated: Boolean(action.payload),
+          isAuthenticated: !isEmpty(action.payload),
           user: action.payload
         }
       default:
