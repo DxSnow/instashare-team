@@ -44,3 +44,5 @@ export const loginUser = (userData, history) => dispatch => {
       payload: err.response.data
     }));
 }
+
+export const clearErrors= ()=>({type:'CLEAR_ERRORS'})

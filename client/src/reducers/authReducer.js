@@ -14,6 +14,7 @@ import isEmpty from '../utils/isEmpty';
           isAuthenticated: !isEmpty(action.payload),
           user: action.payload
         }
+      
       default:
       return state;
     }
