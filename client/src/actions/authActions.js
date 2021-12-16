@@ -2,7 +2,6 @@ import { GET_ERRORS, SET_USER } from './types';
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from "../utils/setAuthToken";
-import store from '../store'
 
 export const registerUser = (userData, history) => dispatch => {
   //calling the api
@@ -46,6 +45,5 @@ export const loginUser = (userData, history) => dispatch => {
     }));
 }
 
-export function clearErrors(){
-  return store.dispatch({type:'CLEAR_ERRORS'})
-}
+export const clearErrors= ()=>dispatch=>
+  dispatch({type:'CLEAR_ERRORS'})
