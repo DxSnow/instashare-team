@@ -4,7 +4,7 @@ export default class Header extends Component {
   render() {
     return (
       <header className="header">
-        <h1>Instashare</h1>
+        <h1 className="app-title">Instashare</h1>
         {/* <nav>
           <ul>
             <li>Login</li>

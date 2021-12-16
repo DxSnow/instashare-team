@@ -1,5 +1,6 @@
 import { SET_USER } from '../actions/types';
- 
+import isEmpty from '../utils/isEmpty';
+
  const initialState = {
     isAuthenticated: false,
     user: {}
@@ -7,13 +8,13 @@ import { SET_USER } from '../actions/types';
  // eslint-disable-next-line import/no-anonymous-default-export
  export default function(state= initialState, action){
     switch(action.type){
-      //dispatch call
-      case SET_USER: 
+      case SET_USER:
         return{
           ...state,
+          isAuthenticated: !isEmpty(action.payload),
           user: action.payload
         }
-      default: 
+      default:
       return state;
     }
  }
