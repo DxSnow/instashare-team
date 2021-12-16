@@ -45,5 +45,4 @@ export const loginUser = (userData, history) => dispatch => {
     }));
 }
 
-export const clearErrors= ()=>dispatch=>
-  dispatch({type:'CLEAR_ERRORS'})
+export const clearErrors= ()=>({type:'CLEAR_ERRORS'})
