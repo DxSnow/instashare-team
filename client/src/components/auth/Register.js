@@ -40,17 +40,16 @@ class Register extends Component {
 
   render() {
     const {errors} = this.props;
-    const {user} = this.props.auth; // deconstruction
+
     return (
       <div className="register">
-      {user ? user.username : 'no user'}
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
               <h1 className="display-4 text-center">Sign Up</h1>
               <p className="lead text-center">Create your Instashare account</p>
               <form noValidate onSubmit={this.onSubmit.bind(this)}>
-                <div className="form-group">
+                <div className="mb-3">
                   <input
                     type="text"
                     className={classnames('form-control form-control-lg', {
@@ -67,7 +66,7 @@ class Register extends Component {
                       </div>
                     }
                 </div>
-                <div className="form-group">
+                <div className="mb-3">
                   <input
                   type="email"
                     className={classnames('form-control form-control-lg', {
@@ -85,7 +84,7 @@ class Register extends Component {
                       </div>
                     }
                 </div>
-                <div className="form-group">
+                <div className="mb-3">
                   <input
                   type="password"
                   className={classnames('form-control form-control-lg', {
@@ -102,7 +101,7 @@ class Register extends Component {
                       </div>
                     }
                 </div>
-                <div className="form-group">
+                <div className="mb-3">
                   <input
                   type="password"
                   className={classnames('form-control form-control-lg', {
@@ -119,7 +118,13 @@ class Register extends Component {
                       </div>
                     }
                 </div>
-                <input type="submit" className="btn btn-info btn-block mt-4" />
+                <div class="d-grid gap-2 mb-1">
+                  <input type="submit" className="btn btn-light"/>
+                </div>
+
+
+
+
               </form>
             </div>
           </div>

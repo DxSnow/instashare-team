@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
 
 export default function Footer() {
   return (
-    <footer className="page-footer">
-      Copyright &copy; {new Date().getFullYear()} Instashare
+    <footer >
+      <div className="container">
+        <span className="text-muted"> Copyright &copy; {new Date().getFullYear()} Instashare</span>
+      </div>
     </footer>
   )
 }
