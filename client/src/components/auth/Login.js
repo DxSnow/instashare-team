@@ -37,13 +37,13 @@ class Login extends Component {
     const {errors} = this.props;
     return (
       <div className="login">
-        <div className="container">
+        <div className="container-sm">
           <div className="row">
             <div className="col-md-8 m-auto">
               <h1 className="display-6 text-center">Log In</h1>
               <p className="lead text-center">Sign in to your Instashare account</p>
               <form noValidate onSubmit={this.onSubmit.bind(this)}>
-                <div className="form-group">
+                <div className="form-group mb-3">
                   <input type="email" className={classnames('form-control form-control-lg', {
                       'is-invalid': errors.email
                     })}
@@ -56,7 +56,7 @@ class Login extends Component {
                   </div>
 
                 </div>
-                <div className="form-group">
+                <div className="form-group mb-3">
                   <input type="password" className={classnames('form-control form-control-lg', {
                       'is-invalid': errors.password
                     })} placeholder="Password" name="password"
@@ -69,7 +69,9 @@ class Login extends Component {
                   </div>
 
                 </div>
-                <input type="submit" className="btn btn-secondary btn-block mt-4" />
+                <div class="d-grid gap-2">
+                  <input type="submit" className="btn btn-light"/>
+                </div>
               </form>
             </div>
           </div>
