@@ -43,7 +43,7 @@ class Register extends Component {
 
     return (
       <div className="register">
-        <div className="container-sm">
+        <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
               <h1 className="display-4 text-center">Sign Up</h1>
@@ -118,9 +118,13 @@ class Register extends Component {
                       </div>
                     }
                 </div>
-                <div class="d-grid gap-2">
+                <div class="d-grid gap-2 mb-1">
                   <input type="submit" className="btn btn-light"/>
                 </div>
+
+
+
+
               </form>
             </div>
           </div>

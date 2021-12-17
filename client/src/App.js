@@ -20,9 +20,11 @@ class App extends Component {
         <Router>
           <div className = "App">
             <Header />
-            <Route exact path="/" component={Landing} />
-            <Route exact path="/register" component={Register} />
-            <Route exact path="/login" component={Login} />
+            <div className = "main">
+              <Route exact path="/" component={Landing} />
+              <Route exact path="/register" component={Register} />
+              <Route exact path="/login" component={Login} />
+            </div>
             <Footer />
           </div>
         </Router>
