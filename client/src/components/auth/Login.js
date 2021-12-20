@@ -27,12 +27,8 @@ class Login extends Component {
   onSubmit(e){
     e.preventDefault();
     const userData = {...this.state};
-
     this.props.loginUser(userData,this.props.history);
-
   }
-
-
   render() {
     const {errors} = this.props;
     return (
@@ -70,7 +66,7 @@ class Login extends Component {
                   </div>
 
                 </div>
-                <div class="d-grid gap-2">
+                <div className="d-grid gap-2">
                   <input type="submit" className="btn btn-light"/>
                 </div>
               </form>
