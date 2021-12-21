@@ -10,6 +10,12 @@ const PostSchema = new Schema({
     type: String,
     required: true
   },
+  name: {
+    type: String
+  },
+  avatar: {
+    type: String
+  },
   image: {
     type: String,
   },
@@ -30,6 +36,12 @@ const PostSchema = new Schema({
       text: {
         type: String,
         required: true
+      },
+      name: {
+        type: String
+      },
+      avatar: {
+        type: String
       },
       date: {
         type: Date,
