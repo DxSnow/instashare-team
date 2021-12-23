@@ -6,19 +6,23 @@ const profileSchema = new Schema({
     type: Schema.Types.ObjectId, //An ObjectId is a special type typically used for unique identifiers.
     ref: 'User' //reference to User model.The ref option is what tells Mongoose which model to use during population
   },
-  username: {
+  // username: {
+  //   type: String,
+  //   ref: 'User'
+  // },
+
+  name: {
     type: String,
-    ref: 'User'
   },
   avatar: {
     type: String,
   },
-  phoneNumber: {
-    type: String
-  },
-  gender: {
-    type: String
-  },
+  // phoneNumber: {
+  //   type: String
+  // },
+  // gender: {
+  //   type: String
+  // },
   bio: {
     type: String
   },

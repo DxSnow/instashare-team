@@ -13,6 +13,8 @@ import Login from './components/auth/Login';
 import Posts from "./components/posts/Posts";
 import store from './store';
 import PrivateRoute from "./components/common/PrivateRoute";
+import Profile from './components/profile/Profile';
+import EditProfile from './components/profile/EditProfile';
 
 
 class App extends Component {
@@ -20,18 +22,24 @@ class App extends Component {
     return (
       <Provider store={store}>
         <Router>
-          <div className = "App">
-            <Header />
-            <div className = "container">
-              <Route exact path="/" component={Landing} />
-              <Route exact path="/register" component={Register} />
-              <Route exact path="/login" component={Login} />
-              <Switch>
-                <PrivateRoute exact path="/posts" component={Posts} />
-              </Switch>
+
+            <div className = "App">
+              <Header />
+              <div className = "container">
+                <Switch>
+                  <Route exact path="/" component={Landing} />
+                  <Route exact path="/register" component={Register} />
+                  <Route exact path="/login" component={Login} />
+
+                  <PrivateRoute exact path="/posts" component={Posts} />
+                  {/* profile page -- any logged in user can see other users' profile page*/}
+                  <Route exact path="/profile/:username" component={Profile} />
+                  <PrivateRoute exact path="/accounts/edit" component={EditProfile} />
+                </Switch>
+              </div>
+              <Footer />
             </div>
-            <Footer />
-          </div>
+
         </Router>
       </Provider>
     )

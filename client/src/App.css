@@ -28,8 +28,14 @@
   margin: 5px;
 }
 .btn-light {
-  background-color: #cc92f8;
+  background-color: #cc92f83a;
+  color: rgba(17, 17, 17, 0.767);
 }
+.btn-light:hover {
+  background-color: #cc92f8;
+  color: rgba(17, 17, 17, 0.767);
+}
+
 .button span {
   cursor: pointer;
   display: inline-block;
