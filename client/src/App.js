@@ -57,7 +57,7 @@ class App extends Component {
                   <Route exact path="/login" component={Login} />
 
                   <PrivateRoute exact path="/posts" component={Posts} />
-                  {/* profile page -- any logged in user can see other users' profile page*/}
+                  {/* dashboard--current user's profile*/}
                   <Route exact path="/profile/:username" component={Profile} />
                   <PrivateRoute exact path="/accounts/edit" component={EditProfile} />
                 </Switch>

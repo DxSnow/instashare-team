@@ -1,4 +1,4 @@
-import { UPDATE_PROFILE } from '../actions/types';
+import { SET_PROFILE } from '../actions/types';
 
 
 const initialState = {};
@@ -6,7 +6,7 @@ const initialState = {};
  export default function(state= initialState, action){
     switch(action.type){
 
-      case UPDATE_PROFILE:
+      case SET_PROFILE:
         return action.payload
 
 

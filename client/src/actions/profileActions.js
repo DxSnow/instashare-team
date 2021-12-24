@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import {UPDATE_PROFILE, GET_ERRORS} from './types';
+import {SET_PROFILE, GET_ERRORS} from './types';
 
 
 export const updateProfile = (userData, history) => dispatch => {
@@ -10,14 +10,26 @@ export const updateProfile = (userData, history) => dispatch => {
       .then(res => {
         //create or update store data
         dispatch({
-          type: UPDATE_PROFILE,
+          type: SET_PROFILE,
           payload:res.data
         });
-        console.log(res.data);
-        {alert('profile saved')}
+        // go back to profile page
+        history.push(`/profile/${res.data.username}`)
+      })
+      .catch(err => dispatch ({
+         type: GET_ERRORS,
+         payload: err.response.data
+       }));
+}
 
-        //go back to profile page
-      //   history.push(`/profile/${res.data.username}`)
+export const getProfile = (userData) => dispatch => {
+   axios
+      .get('/api/profile')
+      .then(res => {
+        dispatch({
+          type: SET_PROFILE,
+          payload:res.data
+        });
       })
       .catch(err => dispatch ({
          type: GET_ERRORS,

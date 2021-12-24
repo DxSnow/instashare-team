@@ -13,6 +13,8 @@ class EditProfile extends Component {
     website:this.props.profile.website
   }
 
+  //if state is {}, get profile from server.
+
   //handle onChange
   onChange = (event) => this.setState({[event.target.name]: event.target.value});
 
@@ -35,6 +37,8 @@ class EditProfile extends Component {
             <div className="col-md-8 m-auto">
               <h3 className="display-4 text-center">Edit Profile</h3>
               <form noValidate onSubmit = {this.onSubmit}>
+              
+
                 {/* name */}
                 <div className="mb-3">
                   <input

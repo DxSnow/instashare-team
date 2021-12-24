@@ -22,7 +22,7 @@ class Header extends Component {
           </Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/landing">
+          <Link className="nav-link" to="/">
             Logout
           </Link></li>
       </ul>

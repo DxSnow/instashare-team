@@ -1,6 +1,6 @@
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
-import { GET_ERRORS, SET_USER } from './types';
+import { GET_ERRORS, SET_USER , SET_PROFILE} from './types';
 import setAuthToken from "../utils/setAuthToken";
 
 export const registerUser = (userData, history) => dispatch => {
@@ -30,6 +30,11 @@ export const loginUser = (userData, history) => dispatch => {
         type: SET_USER,
         payload:decoded
       });
+      //clean up profile data incase new user sees profile data from last user. It can happen if: 1. User u1 logs into the app and does something, so we cache some data in the store.2. User u2 logs into the app without refreshing the browser.
+      dispatch({
+        type: SET_PROFILE,
+        payload: {}
+      });
       //direct to posts component where posts from all users show
       history.push('/posts');
     }
@@ -51,6 +56,11 @@ export const logoutUser = () => dispatch => {
   //Clean the redux store
   dispatch({
     type: SET_USER,
+    payload: {}
+  });
+  //ALSO need to clean up profile
+  dispatch({
+    type: SET_PROFILE,
     payload: {}
   });
 }

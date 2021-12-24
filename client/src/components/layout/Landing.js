@@ -10,6 +10,7 @@ export default class Landing extends Component {
         <Link to="/register" className="button"><span>Sign Up</span></Link>
         <br />
         <Link to="/login" className="button"><span>Log In</span></Link>
+        
 
 
       </div>

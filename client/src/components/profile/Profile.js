@@ -5,21 +5,22 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Spinner from '../common/Spinner';
 import './profile.css';
+import {getProfile} from '../../actions/profileActions';
+import isEmpty from '../../utils/isEmpty';
+
+
 
 class Profile extends Component {
   render() {
-    // const { profile, loading } = this.props.profile;
-    // let profileContent;
 
-    // if (profile === null || loading) {
-    //   profileContent = <Spinner />;
-    // } else {
-    //   profileContent = (
-    //     <div>edit profile</div>
-    //   )
-    // }
     const {isAuthenticated, user} = this.props.auth;
+    //check if Redux store's profile is empty, if empty, get profile from server. otherwise use store data and do not bother server.
+    //after editing profile, store will have new profile data, and it is faster to get store data rather than call server. Only call server when there is no profile data.
+    if (isEmpty(this.props.profile)) {
+      this.props.getProfile();
+    }
     const{name,bio,website} = this.props.profile;
+
     return (
       <section className="container">
         <div class="row">
@@ -27,9 +28,9 @@ class Profile extends Component {
               <img
                 className="rounded-circle"
                 src={user.avatar}
-                alt={user.name}
-                style={{ width: "6rem", marginRight: "5px" }}
-                title="You must have a gravatar connected to your email to display an image"
+                alt={user.username}
+                style={{ width: "6rem" }}
+                // title="You must have a gravatar connected to your email to display an image"
               />
           </div>
 
@@ -66,4 +67,4 @@ class Profile extends Component {
 const mapStateToProps=(state)=>({
   auth:state.auth,
   profile:state.profile})
-export default connect(mapStateToProps)(Profile);
+export default connect(mapStateToProps,{getProfile})(Profile);
