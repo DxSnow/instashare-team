@@ -50,18 +50,18 @@ router.post(
     // Get fields -- if user changed something, update accordingly.
     const profileFields = {};
     profileFields.userID = req.user.id;
-    // if (req.body.username) profileFields.username = req.body.username;
+    if (req.body.username) profileFields.username = req.body.username;
     if (req.body.name) profileFields.name = req.body.name;
     if (req.body.avatar) profileFields.avatar = req.body.avatar;
-    // if (req.body.phoneNumber) profileFields.phoneNumber = req.body.phoneNumber;
-    // if (req.body.gender) profileFields.gender = req.body.gender;
+    if (req.body.phoneNumber) profileFields.phoneNumber = req.body.phoneNumber;
+    if (req.body.gender) profileFields.gender = req.body.gender;
     if (req.body.bio) profileFields.bio = req.body.bio;
 
     if (req.body.website) profileFields.website = req.body.website;
     if (req.body.date) profileFields.date = req.body.date;
     if (req.body.numberOfFollowers) profileFields.numberOfFollowers = req.body.numberOfFollowers;
     if (req.body.numberOfFollowings) profileFields.numberOfFollowings = req.body.numberOfFollowings;
-    // if (req.body.temporarilyDisabled) profileFields.temporarilyDisabled = req.body.temporarilyDisabled;
+    if (req.body.temporarilyDisabled) profileFields.temporarilyDisabled = req.body.temporarilyDisabled;
 
 
     Profile.findOne({ userID: req.user.id }).then((profile) => {
