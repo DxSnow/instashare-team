@@ -13,44 +13,6 @@ class Header extends Component {
     const { username, avatar } = this.props.auth.user;
     const {isAuthenticated} = this.props.auth;
 
-    const authLinks = (
-      <ul className="navbar-nav .col-sm-6 text-secondary">
-        <li className="nav-item">
-          <Link className="nav-link" to="/posts">
-            Posts
-          </Link>
-        </li>
-        <li className="nav-item">
-          {/* link to current user's profile */}
-          <Link className="nav-link" to={`/profile/${username}`} >
-              Profile
-          </Link>
-        </li>
-        <li className="nav-item">
-          {/* <a
-            href=""
-            onClick={this.onLogoutClick.bind(this)}
-            className="nav-link"
-          >
-            <img
-              className="rounded-circle"
-              src={user.avatar}
-              alt={user.name}
-              style={{ width: "25px", marginRight: "5px" }}
-              title="You must have a gravatar connected to your email to display an image"
-            /> */}
-          <Link className="nav-link" to="/login" onClick={this.onLogoutClick}>
-          <img
-              className="rounded-circle"
-              src={avatar}
-              alt={username}
-              style={{ width: "25px", marginRight: "5px" }}
-              title="You must have a gravatar connected to your email to display an image"
-            />
-            Logout
-          </Link></li>
-      </ul>
-    );
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light mb-4">
         <div className="container">
@@ -63,7 +25,33 @@ class Header extends Component {
           </button>
           <div className="collapse navbar-collapse" id="mobile-nav">
 
-            {isAuthenticated? authLinks : 'nothing'}
+            <ul className="navbar-nav .col-sm-6 text-secondary">
+              <li className="nav-item">
+                {/* posts button - show posts from all users  */}
+                <Link className="nav-link" to="/posts">
+                  Posts
+                </Link>
+              </li>
+              <li className="nav-item">
+                {/* profile button - link to current user's profile */}
+                <Link className="nav-link" to={`/profile/${username}`} >
+                    Profile
+                </Link>
+              </li>
+              <li className="nav-item">
+                {/* log out button - log out user (clear token and redux store) and go to log in*/}
+                <Link className="nav-link" to="/login" onClick={this.onLogoutClick}>
+                <img
+                    className="rounded-circle"
+                    src={avatar}
+                    alt={username}
+                    style={{ width: "25px", marginRight: "5px" }}
+                    title="You must have a gravatar connected to your email to display an image"
+                  />
+                  Logout
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
       </nav>
