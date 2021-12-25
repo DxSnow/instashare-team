@@ -42,7 +42,7 @@ class PostItem extends Component {
                 alt=""
               />
             </Link>
-            <p className="col-md-10 fs-5 text-start">Name{post.username}</p>
+            <p className="col-md-10 fs-5 text-start">{post.username}</p>
           </div>
           <div className="card-body">
           <p className="lead">{post.text}</p>
