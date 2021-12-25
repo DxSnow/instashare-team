@@ -10,6 +10,10 @@ const profileSchema = new Schema({
     type: String,
     ref: 'User'
   },
+
+  name: {
+    type: String,
+  },
   avatar: {
     type: String,
   },
