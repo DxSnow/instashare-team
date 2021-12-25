@@ -23,8 +23,8 @@ class Profile extends Component {
 
     return (
       <section className="container">
-        <div class="row">
-          <div class="col">
+        <div className="row">
+          <div className="col">
               <img
                 className="rounded-circle"
                 src={user.avatar}
@@ -34,7 +34,7 @@ class Profile extends Component {
               />
           </div>
 
-          <div class="col">
+          <div className="col">
             <div className="my-flex-container">
               <div className="username">{user.username}</div>
               <Link to="/accounts/edit" className="btn btn-light">Edit Profile</Link>

@@ -29,8 +29,8 @@ router.post(
 
     const newPost = new Post({
       text: req.body.text,
-      name: req.body.name,
-      avatar: req.body.avatar,
+      username: req.user.username,
+      avatar: req.user.avatar,
       user: req.user.id
     });
 
@@ -170,8 +170,8 @@ router.post(
       .then(post => {
         const newComment = {
           text: req.body.text,
-          // name: req.body.name,
-          // avatar: req.body.avatar,
+          username: req.user.username,
+          avatar: req.user.avatar,
           user: req.user.id
         };
 
