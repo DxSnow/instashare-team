@@ -45,7 +45,7 @@ class PostForm extends Component {
     const { errors } = this.state;
 
     return (
-      <div className="post-form mb-3">
+      <div className="post-form mb-5">
         <div className="card card-info">
           <div className="card-header border-light">Create new post</div>
           <div className="card-body">
@@ -60,7 +60,7 @@ class PostForm extends Component {
                 />
               </div>
               <button type="submit" className="btn btn-outline-secondary">
-                Submit
+                Post
               </button>
             </form>
           </div>

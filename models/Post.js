@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const PostSchema = new Schema({
-  author: {
+  user: {
     type: Schema.Types.ObjectId,
     ref: 'User'
   },
@@ -23,13 +23,13 @@ const PostSchema = new Schema({
     {
       user: {
         type: Schema.Types.ObjectId,
-        ref: 'users'
+        ref: 'User'
       }
     }
   ],
   comments: [
     {
-      commenter: {
+      user: {
         type: Schema.Types.ObjectId,
         ref: 'User' //we will get the commenter's username and avatar from User model
       },
