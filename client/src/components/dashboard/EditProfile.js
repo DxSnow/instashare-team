@@ -6,7 +6,7 @@ import {updateProfile} from '../../actions/profileActions';
 
 
 class EditProfile extends Component {
-  
+
 
   state={
     name:this.props.profile.name,
@@ -95,7 +95,7 @@ class EditProfile extends Component {
                       </div>
                 </div>
                 {/* submit button */}
-                <div class="d-grid gap-2 mb-1">
+                <div className="d-grid gap-2 mb-1">
                   <input type="submit" className="btn btn-light"/>
                 </div>
 

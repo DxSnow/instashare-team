@@ -24,7 +24,7 @@ class Header extends Component {
         {/* profile button - link to current user's profile */}
         <li className="nav-item">
           <Link className="nav-link" to={"/dashboard"} >
-              Dashboard
+              My Profile
           </Link>
         </li>
         {/* log out button - log out user (clear token and redux store) and go to log in*/}
