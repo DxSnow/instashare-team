@@ -20,8 +20,8 @@ router.get(
   (req, res) => {
     const errors = {};
 
-    Profile.findOne({ userID: req.user.id })
-      .populate("userID", ["username", "avatar"])
+    Profile.findOne({ user: req.user.id })
+      .populate("user", ["username", "avatar"])
       .then((profile) => {
         if (!profile) {
           errors.noprofile = "There is no profile for this user";
@@ -32,6 +32,26 @@ router.get(
       .catch((err) => res.status(404).json(err));
   }
 );
+
+// @route   GET api/profile/username
+// @desc    Get profile by username
+// @access  Public
+
+router.get("/:username", (req, res) => {
+  const errors = {};
+
+  Profile.findOne({ username: req.params.username })
+    .populate("user", ["name", "avatar"])
+    .then((profile) => {
+      if (!profile) {
+        errors.noprofile = "There is no profile for this user";
+        return res.status(404).json(errors);
+      }
+
+      res.json(profile);
+    })
+    .catch((err) => res.status(404).json(err));
+});
 
 // @route   POST api/profile
 // @desc    Create or edit user profile
@@ -49,7 +69,7 @@ router.post(
 
     // Get fields -- if user changed something, update accordingly.
     const profileFields = {};
-    profileFields.userID = req.user.id;
+    profileFields.user = req.user.id;
     if (req.body.username) profileFields.username = req.body.username;
     if (req.body.name) profileFields.name = req.body.name;
     if (req.body.avatar) profileFields.avatar = req.body.avatar;
@@ -64,11 +84,11 @@ router.post(
     if (req.body.temporarilyDisabled) profileFields.temporarilyDisabled = req.body.temporarilyDisabled;
 
 
-    Profile.findOne({ userID: req.user.id }).then((profile) => {
+    Profile.findOne({ user: req.user.id }).then((profile) => {
       if (profile) {
         // Update profile
         Profile.findOneAndUpdate(
-          { userID: req.user.id },
+          { user: req.user.id },
           { $set: profileFields },
           { new: true }
         ).then((profile) => res.json(profile));

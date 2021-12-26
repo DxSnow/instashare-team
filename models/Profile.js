@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const profileSchema = new Schema({
-  userID: {
+  user: {
     type: Schema.Types.ObjectId, //An ObjectId is a special type typically used for unique identifiers.
     ref: 'User' //reference to User model.The ref option is what tells Mongoose which model to use during population
   },
