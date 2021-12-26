@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import {loginUser} from '../../actions/authActions';
+import { Link } from 'react-router-dom';
 
 class Login extends Component {
   constructor(props) {
@@ -66,8 +67,17 @@ class Login extends Component {
                   </div>
 
                 </div>
+                
                 <div className="d-grid gap-2">
                   <input type="submit" className="btn btn-light"/>
+                </div>
+                <div className="form-group mb-3">
+                  <p>New to Instashare?&nbsp;  
+                    <Link to="/register">
+                        Signup now
+                        <i className="text-secondary"/>
+                    </Link>
+                  </p>
                 </div>
               </form>
             </div>

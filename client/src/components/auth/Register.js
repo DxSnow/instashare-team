@@ -5,6 +5,7 @@ import classnames from 'classnames';
 import { connect } from 'react-redux'; // connect function
 import {registerUser } from '../../actions/authActions';
 import {clearErrors}from '../../actions/authActions';
+import { Link } from 'react-router-dom';
 
 class Register extends Component {
   constructor() {
@@ -55,7 +56,7 @@ class Register extends Component {
                     className={classnames('form-control form-control-lg', {
                       'is-invalid': errors.username
                     })}
-                    placeholder="Name"
+                    placeholder="Username"
                     name="username"
                     value = {this.state.username}
                     onChange={this.onChange.bind(this)}
@@ -121,10 +122,14 @@ class Register extends Component {
                 <div class="d-grid gap-2 mb-1">
                   <input type="submit" className="btn btn-light"/>
                 </div>
-
-
-
-
+                <div className="form-group mb-3">
+                  <p>Already on Instashare?&nbsp;
+                    <Link to="/login">
+                        Sign in
+                        <i className="text-secondary"/>
+                    </Link>
+                  </p>
+                </div>
               </form>
             </div>
           </div>
