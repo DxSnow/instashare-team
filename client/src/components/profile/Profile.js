@@ -30,7 +30,6 @@ class Profile extends Component {
                 src={user.avatar}
                 alt={user.username}
                 style={{ width: "6rem" }}
-                // title="You must have a gravatar connected to your email to display an image"
               />
           </div>
 
