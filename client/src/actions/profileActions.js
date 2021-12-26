@@ -14,7 +14,7 @@ export const updateProfile = (userData, history) => dispatch => {
           payload:res.data
         });
         // go back to profile page
-        history.push(`/profile/${res.data.username}`)
+        history.push(`/dashboard`)
       })
       .catch(err => dispatch ({
          type: GET_ERRORS,
@@ -22,9 +22,9 @@ export const updateProfile = (userData, history) => dispatch => {
        }));
 }
 
-export const getProfile = (userData) => dispatch => {
+export const getProfile = (username) => dispatch => {
    axios
-      .get('/api/profile')
+      .get(`/api/profile/${username}`)
       .then(res => {
         dispatch({
           type: SET_PROFILE,

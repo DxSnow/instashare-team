@@ -23,8 +23,8 @@ class Header extends Component {
         </li>
         {/* profile button - link to current user's profile */}
         <li className="nav-item">
-          <Link className="nav-link" to={`/profile/${username}`} >
-              Profile
+          <Link className="nav-link" to={"/dashboard"} >
+              Dashboard
           </Link>
         </li>
         {/* log out button - log out user (clear token and redux store) and go to log in*/}
