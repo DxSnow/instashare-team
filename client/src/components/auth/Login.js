@@ -74,7 +74,7 @@ class Login extends Component {
                 <div className="form-group mb-3">
                   <p>New to Instashare?&nbsp;  
                     <Link to="/register">
-                        Signup now
+                        Sign up now
                         <i className="text-secondary"/>
                     </Link>
                   </p>
