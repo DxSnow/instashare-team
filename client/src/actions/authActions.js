@@ -1,6 +1,6 @@
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
-import { GET_ERRORS, SET_USER , SET_PROFILE} from './types';
+import { GET_ERRORS, SET_USER , SET_PROFILE, CLEAR_ERRORS} from './types';
 import setAuthToken from "../utils/setAuthToken";
 
 export const registerUser = (userData, history) => dispatch => {
@@ -65,4 +65,4 @@ export const logoutUser = () => dispatch => {
   });
 }
 
-export const clearErrors= () => ({type:'CLEAR_ERRORS'})
+export const clearErrors= () => ({type:CLEAR_ERRORS})

@@ -22,9 +22,9 @@ export const updateProfile = (userData, history) => dispatch => {
        }));
 }
 
-export const getProfile = (username) => dispatch => {
+export const getCurrentUserProfile = (username) => dispatch => {
    axios
-      .get(`/api/profile/${username}`)
+      .get("/api/profile")
       .then(res => {
         dispatch({
           type: SET_PROFILE,

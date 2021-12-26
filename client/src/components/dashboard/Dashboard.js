@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Spinner from '../common/Spinner';
 import './dashboard.css';
-import {getProfile} from '../../actions/profileActions';
+import {getCurrentUserProfile} from '../../actions/profileActions';
 import isEmpty from '../../utils/isEmpty';
 import axios from 'axios';
 
@@ -18,12 +18,12 @@ class Dashboard extends Component {
     //check if Redux store's profile is empty, if empty, get profile from server. otherwise use store data and do not bother server.
     //after editing profile, store will have new profile data, and it is faster to get store data rather than call server. Only call server when there is no profile data.
     if (isEmpty(this.props.profile)) {
-      this.props.getProfile(user.username);
+      this.props.getCurrentUserProfile();
     }
     const{name,bio,website} = this.props.profile;
 
     // To only show posts from a certain user, get all posts from serverm and filter it according to the username in current URL
-    const postsByThisUser= this.props.posts.filter(post => post.username === this.props.match.params.username).map((filteredPost) => (
+    const postsByThisUser= this.props.posts.filter(post => post.username === user.username).map((filteredPost) => (
       <li className="list-group-item">{filteredPost.text}</li>
   ))
 
@@ -59,7 +59,7 @@ class Dashboard extends Component {
               </div>
             </div>
             <br /> */}
-            <div className="name">{name}</div>
+            <div className="name">Full name: {name}</div>
             <div>{website}</div>
             <div>{bio}</div>
           </div>
@@ -86,4 +86,4 @@ const mapStateToProps=(state)=>({
   auth:state.auth,
   profile:state.profile,
   posts: state.post.posts})
-export default connect(mapStateToProps,{getProfile})(Dashboard);
+export default connect(mapStateToProps,{getCurrentUserProfile})(Dashboard);

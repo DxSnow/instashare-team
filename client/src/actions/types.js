@@ -1,7 +1,11 @@
+//ACTION TYPES TO BE USED IN ACTIONS AND REDUCERS. HELPS TO PREVENT TYPO.
+//USER
 export const SET_USER = 'SET_USER';
+//ERRROR
 export const GET_ERRORS = 'GET_ERRORS';
-export const SET_ERROR = 'SET_ERROR';
+export const SET_ERRORS = 'SET_ERRORS';
 export const CLEAR_ERRORS = "CLEAR_ERRORS";
+//POST
 export const POST_LOADING = "POST_LOADING";
 export const GET_POSTS = "GET_POSTS";
 export const GET_POST = "GET_POST";
