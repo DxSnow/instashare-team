@@ -11,6 +11,7 @@ import Footer from './components/layout/Footer';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import Posts from "./components/posts/Posts";
+import Post from "./components/post/Post";
 import store from './store';
 import PrivateRoute from "./components/common/PrivateRoute";
 import Profile from './components/profile/Profile';
@@ -57,10 +58,13 @@ class App extends Component {
                   <Route exact path="/login" component={Login} />
 
                   <PrivateRoute exact path="/posts" component={Posts} />
+                  <PrivateRoute exact path="/post/:id" component={Post} />
+                  
                   {/* dashboard--current user's profile*/}
                   <Route exact path="/profile/:username" component={Profile} />
                   <PrivateRoute exact path="/accounts/edit" component={EditProfile} />
                 </Switch>
+
               </div>
               <Footer />
             </div>
