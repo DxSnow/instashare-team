@@ -69,8 +69,7 @@ class Dashboard extends Component {
           {/* end of profile upper part */}
         </div>{/* end of row */}
         <hr />
-        {/* create a new post */}
-        <PostForm/>
+        
          {/* posts display part */}
         <div>
             {postsByThisUser.map(post => <PostItem key={post._id} post={post} />)}
