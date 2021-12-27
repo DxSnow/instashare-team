@@ -73,7 +73,7 @@ class Dashboard extends Component {
         <PostForm/>
          {/* posts display part */}
         <div>
-            {postsByThisUser.map(post => <PostItem key={post._id} post={post} />)};
+            {postsByThisUser.map(post => <PostItem key={post._id} post={post} />)}
         </div>
       </section>
     )
