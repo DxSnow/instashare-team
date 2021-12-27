@@ -6,10 +6,10 @@ export default class Landing extends Component {
     return (
       <div className="landing">
         {/*<button to = "/" className = "button"><span>Demo Login</span></button>
-        <br />
+        <br />*/}
         <Link to="/register" className="button"><span>Sign Up</span></Link>
         <br />
-        <Link to="/login" className="button"><span>Log In</span></Link>*/}
+        <Link to="/login" className="button"><span>Log In</span></Link>
       </div>
     )
   }
