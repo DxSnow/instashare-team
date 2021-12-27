@@ -63,22 +63,15 @@ class Dashboard extends Component {
             <div>{website}</div>
             <div>{bio}</div>
           </div>
-          {/* end of profile upper section */}
-
-          <hr />
-          <div>
+          {/* end of profile upper part */}
+        </div>{/* end of row */}
+        <hr />
+         {/* posts display part */}
+        <div>
             <ul className="list-group list-group-flush">
               {postsByThisUser}
             </ul>
-          </div>
-
-
-
-
-
-
-
-        </div>{/* end of row */}
+        </div>
       </section>
     )
   }
