@@ -14,7 +14,7 @@ class Header extends Component {
     const {isAuthenticated} = this.props.auth;
 
     const guestLinks = (
-      <ul className="navbar-nav ml-auto">
+      <ul className="navbar-nav ms-auto">
         <li className="nav-item">
           <Link className="nav-link" to="/register">Sign Up</Link>
         </li>
@@ -24,7 +24,7 @@ class Header extends Component {
       </ul>
     );
     const authLinks = (
-      <ul className="navbar-nav text-secondary mr-auto">
+      <ul className="navbar-nav text-secondary ms-auto">
         {/* posts button - show posts from all users  */}
         <li className="nav-item">
           <Link className="nav-link" to="/posts">
@@ -39,8 +39,8 @@ class Header extends Component {
         </li>
         {/* log out button - log out user (clear token and redux store) and go to log in*/}
         <li className="nav-item">
-          <Link 
-          className="nav-link" to="/login" 
+          <Link
+          className="nav-link" to="/login"
           onClick={this.onLogoutClick.bind(this)}>
           <img
               className="rounded-circle"
