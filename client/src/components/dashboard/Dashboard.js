@@ -7,10 +7,7 @@ import { Link } from 'react-router-dom';
 import './dashboard.css';
 import {getCurrentUserProfile} from '../../actions/profileActions';
 import isEmpty from '../../utils/isEmpty';
-import PostItem from '../posts/PostItem';
-import PostForm from '../posts/PostForm';
-
-
+//import axios from 'axios';
 
 
 
@@ -26,9 +23,9 @@ class Dashboard extends Component {
     const{name,bio,website} = this.props.profile;
 
     // To only show posts from a certain user, get all posts from serverm and filter it according to the username in current URL
-    const postsByThisUser= this.props.posts.filter(post => post.username === user.username)
-
-
+    const postsByThisUser= this.props.posts.filter(post => post.username === user.username).map((filteredPost) => (
+      <li key={this.props.posts.id} className="list-group-item">{filteredPost.text}</li>
+  ))
 
 
 
@@ -66,15 +63,22 @@ class Dashboard extends Component {
             <div>{website}</div>
             <div>{bio}</div>
           </div>
-          {/* end of profile upper part */}
+          {/* end of profile upper section */}
+
+          <hr />
+          <div>
+            <ul className="list-group list-group-flush">
+              {postsByThisUser}
+            </ul>
+          </div>
+
+
+
+
+
+
+
         </div>{/* end of row */}
-        <hr />
-        {/* create a new post */}
-        <PostForm/>
-         {/* posts display part */}
-        <div>
-            {postsByThisUser.map(post => <PostItem key={post._id} post={post} />)}
-        </div>
       </section>
     )
   }
