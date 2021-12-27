@@ -1,13 +1,13 @@
 
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import Spinner from '../common/Spinner';
+//import Spinner from '../common/Spinner';
 import './dashboard.css';
 import {getCurrentUserProfile} from '../../actions/profileActions';
 import isEmpty from '../../utils/isEmpty';
-import axios from 'axios';
+//import axios from 'axios';
 
 
 
@@ -24,7 +24,7 @@ class Dashboard extends Component {
 
     // To only show posts from a certain user, get all posts from serverm and filter it according to the username in current URL
     const postsByThisUser= this.props.posts.filter(post => post.username === user.username).map((filteredPost) => (
-      <li className="list-group-item">{filteredPost.text}</li>
+      <li key={this.props.posts.id} className="list-group-item">{filteredPost.text}</li>
   ))
 
 
