@@ -31,7 +31,8 @@ router.post(
       text: req.body.text,
       username: req.user.username,
       avatar: req.user.avatar,
-      user: req.user.id
+      user: req.user.id,
+      // image:req.body.image
     });
 
     newPost.save().then(post => res.json(post));
