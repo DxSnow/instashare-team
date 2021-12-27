@@ -13,8 +13,18 @@ class Header extends Component {
     const { username, avatar } = this.props.auth.user;
     const {isAuthenticated} = this.props.auth;
 
+    const guestLinks = (
+      <ul className="navbar-nav ml-auto">
+        <li className="nav-item">
+          <Link className="nav-link" to="/register">Sign Up</Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link" to="/login">Login</Link>
+        </li>
+      </ul>
+    );
     const authLinks = (
-      <ul className="navbar-nav .col-sm-6 text-secondary">
+      <ul className="navbar-nav text-secondary mr-auto">
         {/* posts button - show posts from all users  */}
         <li className="nav-item">
           <Link className="nav-link" to="/posts">
@@ -29,31 +39,29 @@ class Header extends Component {
         </li>
         {/* log out button - log out user (clear token and redux store) and go to log in*/}
         <li className="nav-item">
-          <Link className="nav-link" to="/login" onClick={this.onLogoutClick}>
+          <Link 
+          className="nav-link" to="/login" 
+          onClick={this.onLogoutClick.bind(this)}>
           <img
               className="rounded-circle"
               src={avatar}
               alt={username}
               style={{ width: "25px", marginRight: "5px" }}
-              title="You must have a gravatar connected to your email to display an image"
             />
             Logout
-          </Link></li>
+          </Link>
+        </li>
       </ul>
     );
     return (
-      <nav className="navbar navbar-expand-lg navbar-light bg-light mb-4">
+      <nav className="navbar navbar-expand-sm navbar-light bg-light mb-4">
         <div className="container">
           <Link className="navbar-brand" to="/">Instashare</Link>
-          <button className="navbar-toggler"
-                  type="button"
-                  data-toggle="collapse"
-                  data-target="#mobile-nav">
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                 <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="mobile-nav">
-
-            {isAuthenticated? authLinks : 'nothing'}
+          <div className="collapse navbar-collapse" id="collapsibleNavbar">
+            {isAuthenticated? authLinks : guestLinks}
           </div>
         </div>
       </nav>

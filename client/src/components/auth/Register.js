@@ -119,7 +119,7 @@ class Register extends Component {
                       </div>
                     }
                 </div>
-                <div class="d-grid gap-2 mb-1">
+                <div className="d-grid gap-2 mb-1">
                   <input type="submit" className="btn btn-light"/>
                 </div>
                 <div className="form-group mb-3">

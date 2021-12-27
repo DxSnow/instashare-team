@@ -1,13 +1,13 @@
 
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import Spinner from '../common/Spinner';
+//import Spinner from '../common/Spinner';
 import './dashboard.css';
 import {getCurrentUserProfile} from '../../actions/profileActions';
 import isEmpty from '../../utils/isEmpty';
-import axios from 'axios';
+//import axios from 'axios';
 
 
 
