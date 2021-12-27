@@ -24,7 +24,7 @@ class Header extends Component {
       </ul>
     );
     const authLinks = (
-      <ul className="navbar-nav text-secondary mr-auto" aria-labelledby="navbarDropdownMenuLink">
+      <ul className="navbar-nav text-secondary mr-auto">
         {/* posts button - show posts from all users  */}
         <li className="nav-item">
           <Link className="nav-link" to="/posts">
