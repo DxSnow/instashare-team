@@ -1,4 +1,4 @@
-module.exports = {
-  mongoURI: 'mongodb+srv://gkaur:OCLWO4SLBMI4ZvKG@cluster0.lfbch.mongodb.net/instasharedb?retryWrites=true&w=majority',
-  secretOrKey: 'secret'
+module.exports={
+  mongoURI:"mongodb+srv://dsnow:ffZrqu3VjU0iLMuz@cluster0.3xvxh.mongodb.net/instaShare?retryWrites=true&w=majority",
+  secretOrKey:'secret'
 }
