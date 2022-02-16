@@ -31,37 +31,39 @@ class PostItem extends Component {
   render() {
     const { post, auth, showActions } = this.props;
 
+
     return (
       <div className="card card-body mb-1">
       <div className="card card-info ">
         <div className="card-header border-light">
         <div className="row">
           <div className="col-md-2">
-            <Link to="/profile">
+            {/* clicking someone's avatar will lead to that person's profile */}
+            <Link to={`/profile/${post.username}`}>
               <img
                 className="rounded-circle d-none d-md-block circle-img"
                 src={post.avatar}
-                alt=""
+                alt="Post Author"
               />
             </Link>
           </div>
           <div className="col-md-6">
             <p className="fs-4 text-start">{post.username}</p>
-            
+
           </div>
           <div className="col-md-4">
-            <Moment 
-              className="fs-12 text-end" 
+            <Moment
+              className="fs-12 text-end"
               format="MMMM Do YYYY"
               >
               {post.date}
             </Moment>
-          </div>  
+          </div>
         </div>
         </div>
         <div className="card-body">
         <p className="lead">{post.text}</p>
-        
+
           {showActions ? (
             <span>
               <button

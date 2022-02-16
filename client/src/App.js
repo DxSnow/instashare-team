@@ -16,10 +16,12 @@ import store from './store';
 import PrivateRoute from "./components/common/PrivateRoute";
 import Dashboard from './components/dashboard/Dashboard';
 import EditProfile from './components/dashboard/EditProfile';
+import PublicProfile from './components/publicProfile/PublicProfile';
 import jwt_decode from 'jwt-decode';
 import { logoutUser } from './actions/authActions';
 import {SET_USER} from './actions/types';
 import setAuthToken from './utils/setAuthToken';
+import PageNotFound from './components/PageNotFound';
 
 if (localStorage.jwtToken){
   //decode
@@ -62,8 +64,9 @@ class App extends Component {
 
                   {/* dashboard--current user's profile*/}
                   <PrivateRoute exact path="/dashboard" component={Dashboard} />
-                  {/* <PrivateRoute exact path="/profile/:username" component={Profile} /> */}
+                  <PrivateRoute exact path="/profile/:username" component={PublicProfile} />
                   <PrivateRoute exact path="/accounts/edit" component={EditProfile} />
+                  <Route exact path ="/not-found" component = {PageNotFound}/>
                 </Switch>
 
               </div>

@@ -40,14 +40,25 @@ router.post(
 );
 
 // @route   GET api/posts
-// @desc    Get posts
+// @desc    Get all posts
 // @access  Public
 router.get('/', (req, res) => {
   Post.find()
-    .sort({ date: -1 }) //?????
+    .sort({ date: -1 }) //MongoDB descending sort
     .then(posts => res.json(posts))
     .catch(err => res.status(404).json({ nopostsfound: 'No posts found' }));
 });
+// newly added~~
+// @route   GET api/posts/username
+// @desc    Get posts by username
+// @access  Public
+router.get('/:username', (req, res) => {
+  Post.find({username:req.params.username})
+    .sort({ date: -1 })//MongoDB descending sort
+    .then(posts => res.json(posts))
+    .catch(err => res.status(404).json({ nopostsfound: 'No posts found' }));
+});
+// MyModel.find({ name: 'john', age: { $gte: 18 }}, function (err, docs) {});
 
 // @route   GET api/posts/:id
 // @desc    Get post by id

@@ -8,7 +8,7 @@ import './dashboard.css';
 import {getCurrentUserProfile} from '../../actions/profileActions';
 import isEmpty from '../../utils/isEmpty';
 import PostItem from '../posts/PostItem';
-import PostForm from '../posts/PostForm';
+
 
 
 
@@ -17,7 +17,7 @@ import PostForm from '../posts/PostForm';
 class Dashboard extends Component {
   render() {
 
-    const {isAuthenticated, user} = this.props.auth;
+    const {user} = this.props.auth;
     //check if Redux store's profile is empty, if empty, get profile from server. otherwise use store data and do not bother server.
     //after editing profile, store will have new profile data, and it is faster to get store data rather than call server. Only call server when there is no profile data.
     if (isEmpty(this.props.profile)) {
@@ -69,8 +69,7 @@ class Dashboard extends Component {
           {/* end of profile upper part */}
         </div>{/* end of row */}
         <hr />
-        {/* create a new post */}
-        <PostForm/>
+
          {/* posts display part */}
         <div>
             {postsByThisUser.map(post => <PostItem key={post._id} post={post} />)}
