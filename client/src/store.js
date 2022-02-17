@@ -5,7 +5,7 @@ import rootReducer from './reducers';// will refer to index.js file
 const middleware = [thunk];
 const initialState = {}
 
-// the following code is disabled because if a browser does not have redux_devtools installed it will show blank page.
+// !! the following code is disabled because if a browser does not have redux_devtools installed it will show blank page.
 // const store = createStore(
 //               rootReducer, // list of all reducers
 //               {},
