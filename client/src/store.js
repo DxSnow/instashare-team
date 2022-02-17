@@ -15,6 +15,7 @@ const initialState = {}
 //               ));
 
 //  to solve above problem, we can exclude redux_devtools when in production
+const store
 if(process.env.NODE_ENV === 'production') {
   store = createStore(rootReducer, initialState, compose(
       applyMiddleware(...middleware)
