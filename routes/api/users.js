@@ -87,9 +87,7 @@ router.post('/login', (req, res) => {
         }else{
           //generate token
           const payload = {
-            id: user.id,
-            username: user.username,
-            avatar: user.avatar
+            id: user.id // avoid PII
           };
           jwt.sign(
             payload ,
